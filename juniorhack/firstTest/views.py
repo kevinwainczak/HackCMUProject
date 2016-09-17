@@ -35,6 +35,20 @@ def get_name(request):
 
 	return render(request, 'name.html', {'form':form1})
 
+def checkForConvo():
+    convo = []
+    allElements = Person.objects.all()
+    if len(allElements) < 3: return "no"
+    for person in allElements:
+        flag = 0
+        for x in convo:
+            if demographicEqual(person, x):
+                flag = 1
+        if flag == 0:
+            convo.append(person)
+        if len(convo) == 3:
+            break
+    return "yes"
 
 def index(request):
 	return render(request, 'index.html')

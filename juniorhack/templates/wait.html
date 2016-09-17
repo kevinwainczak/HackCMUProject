@@ -11,7 +11,7 @@
 		xhr1.onload = function() {
 			var response = xhr1.response;
 			console.log(response);
-			if (response == "yes") {
+			if (response == 1) {
 				clearInterval(interval);
 				window.location.href = '/meetup';
 			} // else do nothing

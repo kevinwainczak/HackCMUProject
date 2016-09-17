@@ -33,6 +33,22 @@ def checkForConvo():
         if len(convo) == 3:
             break
     return "yes"
+
+def getDistances():
+    convo = []
+    allElements = Person.objects.all()
+    for person in allElements:
+        flag = 0
+        for x in convo:
+            if demographicEqual(person, x):
+                flag = 1
+        if flag == 0:
+            convo.append(person)
+        if len(convo) == 3:
+            break
+    result = (convo[0].distance, convo[1].distance, convo[2].distance)
+    return result
+
 # n = name, String
 # g = gender, String
 # a = age, Integer

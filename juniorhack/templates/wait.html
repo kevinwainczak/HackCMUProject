@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<p>Waiting...</p>
+	<script>
+		var xhr1 = new XMLHttpRequest();
+		xhr1.onload = function() {
+			var response = xhr1.response;
+			if (response == "yes") {
+				clearInterval(interval);
+				window.location.href = '/meetup';
+			} // else do nothing
+		var interval = setInterval(
+							function() {
+								xhr1.open('GET','/result',true);
+								xhr1.send();
+							}, 3000);
+		}
+		xhr.send
+	</script>
+</body>
+</html>

@@ -9,7 +9,7 @@ class Person(models.Model):
     gender = models.CharField(max_length=255)
     age = models.IntegerField()
     race = models.CharField(max_length=255)
-    sexuality = models.CharField(max_length=8)
+    sexuality = models.CharField(max_length=255)
     roast = models.CharField(max_length=255)
     desiredTopic = models.CharField(max_length=255)
     ## the type of location is going to have to change

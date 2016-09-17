@@ -3,9 +3,73 @@
 		<link rel="stylesheet" type="text/css" href="name_css.css">
 	</head>
 	<body>
+<<<<<<< HEAD
 		<form class="form" method="POST" target="name.html" style="margin-left: 550px; margin-top:300px; margin-right: auto; color: white; font-family: Arial;">
+=======
+
+		<form class="form" method="POST" style="margin-left: 550px; margin-top:300px; margin-right: auto; color: white;>
+>>>>>>> 8f349c11b91dc65b6da68746c15795ad1432978f
 			{{form.as_p}}
 			<input type="submit">
+			<input type="hidden" id="distanceArr" name="distance">
 		</form>
+
+		<script>
+    		var dest = ['417 South Craig Street, Pittsburgh, PA 15213',
+						'4022 Fifth Ave, Pittsburgh, PA 15213',
+						'3618 Forbes Ave, Pittsburgh, PA 15213',
+						'200 Lothrop St, Pittsburgh, PA 15213',
+						'730 Copeland St, Pittsburgh, PA 15232',
+						'6304 Forbes Ave, Pittsburgh, PA 15217',
+						'2345 Murray Ave #110, Pittsburgh, PA 15217',
+						'7 Market Square, Pittsburgh, PA 15222'];
+			var pos = {lat: 40.443, lng: -79.943};
+			if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(function(position) {
+		        	pos = {
+		            	lat: position.coords.latitude,
+		            	lng: position.coords.longitude
+		        	};
+		        });
+		    }
+			function initialize() {
+				var service = new google.maps.DistanceMatrixService();
+				service.getDistanceMatrix(
+					{
+						origins:[pos],
+						destinations: dest,
+						travelMode: 'DRIVING',
+						drivingOptions: {
+							departureTime: new Date(Date.now()),
+							trafficModel: 'optimistic'
+						}
+					},callback);
+			}
+
+			function callback(response,status){
+				if (status == 'OK') {
+					var origins = response.originAddresses;
+					var destinations = response.destinationAddresses;
+					var distanceArray = new Array(dest.length);
+					for (var i = 0; i < origins.length; i++) {
+						var results = response.rows[i].elements;
+						for (var j = 0; j < results.length; j++) {
+							var element = results[j];
+							var distance = element.distance.text;
+							var duration = element.duration.text;
+							distanceArray[j] = distance;
+							/*var from = origins[i];
+							var to = destinations[j];*/
+							window.alert("distance =" + distance + " duration = " + duration);
+						}
+					}
+				}
+			}
+			var darr = distanceArray.join();
+			document.getElementById("distanceArr").value = darr;
+		</script>
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD5ScteWK-i6oxXW3Af5Tky63HwcqCudo&callback=initialize">      
+		</script>
 	</body>
 </html>

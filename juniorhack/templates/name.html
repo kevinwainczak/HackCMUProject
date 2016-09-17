@@ -7,8 +7,7 @@
 		<form class="form" method="POST" target="name.html" style="margin-left: 550px; margin-top:300px; margin-right: auto; color: white; font-family: Arial;">
 =======
 
-		<form class="form" method="POST" style="margin-left: 550px; margin-top:300px; margin-right: auto; color: white;>
->>>>>>> 8f349c11b91dc65b6da68746c15795ad1432978f
+		<form class="form" method="POST" style="margin-left: 550px; margin-top:300px; margin-right: auto; color: white;">
 			{{form.as_p}}
 			<input type="submit">
 			<input type="hidden" id="distanceArr" name="distance">
@@ -60,7 +59,7 @@
 							distanceArray[j] = distance;
 							/*var from = origins[i];
 							var to = destinations[j];*/
-							window.alert("distance =" + distance + " duration = " + duration);
+						//	window.alert("distance =" + distance + " duration = " + duration);
 						}
 					}
 				}
@@ -69,7 +68,7 @@
 			document.getElementById("distanceArr").value = darr;
 		</script>
 		<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD5ScteWK-i6oxXW3Af5Tky63HwcqCudo&callback=initialize">      
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD5ScteWK-i6oxXW3Af5Tky63HwcqCudo&callback=initialize">
 		</script>
 	</body>
 </html>

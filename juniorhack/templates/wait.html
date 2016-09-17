@@ -6,19 +6,23 @@
 <body>
 	<p style="color:white;">Waiting...</p>
 	<script>
+		console.log("i'm here");
 		var xhr1 = new XMLHttpRequest();
 		xhr1.onload = function() {
 			var response = xhr1.response;
+			console.log(response);
 			if (response == "yes") {
 				clearInterval(interval);
 				window.location.href = '/meetup';
 			} // else do nothing
+		}
+		console.log("setting interval");
 		var interval = setInterval(
 							function() {
-								xhr1.open('GET','/result',true);
+								console.log("hello world");
+								xhr1.open('GET',window.location.hostname+'/result',true);
 								xhr1.send();
 							}, 3000);
-		}
 	</script>
 </body>
 </html>

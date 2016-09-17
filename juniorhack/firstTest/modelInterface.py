@@ -34,6 +34,7 @@ def checkForConvo():
             break
     return "yes"
 
+<<<<<<< HEAD
 def findIndex(x,y,z):
     x1 = x.split(',')
     y1 = y.split(',')
@@ -43,6 +44,23 @@ def findIndex(x,y,z):
         a[i] = x1[i] + y1[i] + z1[i]
     minIndex = a.index(min(a))
     return minIndex
+=======
+def getDistances():
+    convo = []
+    allElements = Person.objects.all()
+    for person in allElements:
+        flag = 0
+        for x in convo:
+            if demographicEqual(person, x):
+                flag = 1
+        if flag == 0:
+            convo.append(person)
+        if len(convo) == 3:
+            break
+    result = (convo[0].distance, convo[1].distance, convo[2].distance)
+    return result
+
+>>>>>>> origin/master
 # n = name, String
 # g = gender, String
 # a = age, Integer

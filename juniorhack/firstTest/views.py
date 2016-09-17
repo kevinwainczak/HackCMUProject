@@ -8,13 +8,14 @@ from django.http import HttpResponse
 
 from .form import PersonForm
 from .models import *
-#from .modelInterface import createPerson
+from .modelInterface import createPerson
 
 @csrf_exempt
 def get_name(request):
 	if request.method == 'POST':
 		form1 = PersonForm(request.POST)
 		if form1.is_valid():
+			print(form1.cleaned_data.items())
 			#return 
 			print(form1.cleaned_data)
 			name=form1.cleaned_data['your_name']
@@ -24,10 +25,11 @@ def get_name(request):
 			sexuality = form1.cleaned_data['your_sexuality']
 			topic = form1.cleaned_data['your_topic']
 			roast = form1.cleaned_data['your_roast']
-			distance = distace.cleaned_data['distance'];
-			createPerson(name,gender,age,race,sexuality,roast,topic,d) #location & topic?
-			return HttpResponse('Hi')
-			#return redirect('/convo/')
+			distance = request.POST['distance']
+			#distance = '3';# distace.cleaned_data['distance'];
+			createPerson(name,gender,age,race,sexuality,roast,topic,distance) #location & topic?
+			#return HttpResponse('Hi')
+			return redirect('wait')
 	else:
 		form1 = PersonForm()
 
@@ -38,6 +40,8 @@ def index(request):
 	return render(request, 'index.html')
 	#("Hello, world. You're at the polls index.")
 
+def wait(request):
+	return render(request, 'wait.html')
 #def welcome(request):
 #	return render(request, 'welcome.html', {'form':form0})
 

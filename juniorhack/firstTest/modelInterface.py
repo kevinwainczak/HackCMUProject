@@ -15,7 +15,7 @@ def demographicEqual(person, looker):
 # and roast, will create an instance of a person
 # see below for field keys
 def createPerson(n, g, a, r, s, rst, t, d):
-    result = Person(name=n, gender=g, age=a, race=r, sexuality=s, roast=rst, topic=t, distance=d, location=-1)
+    result = Person(name=n, gender=g, age=a, race=r, sexuality=s, roast=rst, desiredTopic=t, distance=d, location=-1)
     result.save()
     return result
 

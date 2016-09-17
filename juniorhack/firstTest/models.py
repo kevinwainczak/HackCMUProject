@@ -11,6 +11,9 @@ class Person(models.Model):
     race = models.CharField(max_length=255)
     sexuality = models.CharField(max_length=8)
     roast = models.CharField(max_length=255)
+    ## the type of location is going to have to change
+    ## once we find out what format jeff will need it in
+    location = models.CharField(max_length=255)
 
 
 @python_2_unicode_compatible

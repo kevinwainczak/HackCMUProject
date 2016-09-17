@@ -18,14 +18,15 @@ class Person(models.Model):
 
 #@python_2_unicode_compatible
 class People(models.Model):
-    host = models.ForeignKey(Person, related_name='host')
-    person1 = models.ForeignKey(Person, related_name='person1')
-    person2 = models.ForeignKey(Person, related_name='person2')
-    person3 = models.ForeignKey(Person, related_name='person3')
-    person4 = models.ForeignKey(Person, related_name='person4')
+    host = models.OneToOneField(Person, related_name='host')
+    person1 = models.OneToOneField(Person, related_name='person1')
+    person2 = models.OneToOneField(Person, related_name='person2')
+    person3 = models.OneToOneField(Person, related_name='person3')
+    person4 = models.OneToOneField(Person, related_name='person4')
 
 #@python_2_unicode_compatible
 class OpenConversations(models.Model):
     conversationTopic = models.CharField(max_length=200)
-    people = models.ForeignKey(People)
+    people = models.OneToOneField(People)
     maxPeople = models.IntegerField()
+    peoplePresent = models.IntegerField()

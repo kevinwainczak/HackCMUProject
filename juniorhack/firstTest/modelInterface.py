@@ -4,9 +4,9 @@ from firstTest.models import *
 # otherwise false. Also checks that roasts are the same
 def demographicEqual(person, looker):
     if (person.gender == looker.gender
-        && person.age == looker.age
-        && person.race == looker.race
-        && person.sexuality == looker.sexuality) return true
+        and person.age == looker.age
+        and person.race == looker.race
+        and person.sexuality == looker.sexuality) return true
     if person.roast != looker.roast: return true
     return false
 

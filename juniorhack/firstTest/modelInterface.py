@@ -33,6 +33,16 @@ def checkForConvo():
         if len(convo) == 3:
             break
     return "yes"
+
+def findIndex(x,y,z):
+    x1 = x.split(',')
+    y1 = y.split(',')
+    z1 = z.split(',')
+    arr = range(len(x1))
+    for i in xrange(len(x1)):
+        a[i] = x1[i] + y1[i] + z1[i]
+    minIndex = a.index(min(a))
+    return minIndex
 # n = name, String
 # g = gender, String
 # a = age, Integer

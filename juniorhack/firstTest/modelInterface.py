@@ -6,7 +6,7 @@ def demographicEqual(person, looker):
     if (person.gender == looker.gender
         and person.age == looker.age
         and person.race == looker.race
-        and person.sexuality == looker.sexuality) return true
+        and person.sexuality == looker.sexuality): return true
     if person.roast != looker.roast: return true
     return false
 
@@ -15,7 +15,7 @@ def demographicEqual(person, looker):
 # and roast, will create an instance of a person
 # see below for field keys
 def createPerson(n, g, a, r, s, rst, t, d):
-    result = Person(name=n, gender=g, age=a, race=r, sexuality=s, roast=rst, topic=t, distance=d, location=-1)
+    result = Person(name=n, gender=g, age=a, race=r, sexuality=s, roast=rst, desiredTopic=t, distance=d, location=-1)
     result.save()
     return result
 

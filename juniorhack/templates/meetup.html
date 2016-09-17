@@ -18,6 +18,7 @@
     </style>
   </head>
   <body>
+  	<p>Meet at the starbucks located at <span id="address"></span></p>
     <div id="map"></div>
     <script>
     	var pos = {lat: 40.443, lng: -79.943};
@@ -47,6 +48,7 @@
 					'6304 Forbes Ave, Pittsburgh, PA 15217',
 					'2345 Murray Ave #110, Pittsburgh, PA 15217',
 					'7 Market Square, Pittsburgh, PA 15222'];
+		document.getElementById("address").innerHTML = dest[0];
 	    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 	        directionsService.route({
 	          	origin: pos,

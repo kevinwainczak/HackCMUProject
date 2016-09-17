@@ -20,7 +20,9 @@ def createPerson(n, g, a, r, s, rst, l):
 
 def checkForConvo():
     convo = []
-    for person in Person.objects.all():
+    allElements = Person.objects.all()
+    if len(allElements) < 3: return "no"
+    for person in allElements:
         flag = 0
         for x in convo:
             if demographicEqual(person, x):
@@ -29,7 +31,7 @@ def checkForConvo():
             convo.append(person)
         if len(convo) == 3:
             break
-    return convo
+    return "yes"
 # n = name, String
 # g = gender, String
 # a = age, Integer

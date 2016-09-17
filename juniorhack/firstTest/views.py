@@ -24,7 +24,7 @@ def get_name(request):
 			sexuality = form1.cleaned_data['your_sexuality']
 			topic = form1.cleaned_data['your_topic']
 			roast = form1.cleaned_data['your_roast']
-			distance = distace.cleaned_data['distance'];
+			distance = '3';# distace.cleaned_data['distance'];
 			createPerson(name,gender,age,race,sexuality,roast,topic,d) #location & topic?
 			return HttpResponse('Hi')
 			#return redirect('/convo/')

@@ -8,19 +8,24 @@ from django.http import HttpResponse
 
 from .form import PersonForm
 from .models import *
+#from .modelInterface import createPerson
 
 @csrf_exempt
 def get_name(request):
 	if request.method == 'POST':
-		form1 = PersonForm(request.form)
+		form1 = PersonForm(request.POST)
 		if form1.is_valid():
 			#return 
-			name=PersonForm.your_name
-			gender = PersonForm.your_gender
-			age = PersonForm.your_age
-			race = PersonForm.your_race
-			sexuality = PersonForm.your_sexuality
-			createPerson(name,gender,age,race,sexuality)
+			print(form1.cleaned_data)
+			name=form1.cleaned_data['your_name']
+			gender = form1.cleaned_data['your_gender']
+			age = form1.cleaned_data['your_age']
+			race = form1.cleaned_data['your_race']
+			sexuality = form1.cleaned_data['your_sexuality']
+			topic = form1.cleaned_data['your_topic']
+			roast = form1.cleaned_data['your_roast']
+			distance = distace.cleaned_data['distance'];
+			createPerson(name,gender,age,race,sexuality,roast,topic,d) #location & topic?
 			return HttpResponse('Hi')
 			#return redirect('/convo/')
 	else:

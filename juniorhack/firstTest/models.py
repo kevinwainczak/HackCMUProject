@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
-@python_2_unicode_compatible
+#@python_2_unicode_compatible
 class Person(models.Model):
     name = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)
@@ -16,14 +16,16 @@ class Person(models.Model):
     location = models.CharField(max_length=255)
 
 
-@python_2_unicode_compatible
+#@python_2_unicode_compatible
 class People(models.Model):
-    person1 = models.ForeignKey(Person)
-    person2 = models.ForeignKey(Person)
-    person3 = models.ForeignKey(Person)
-    person4 = models.ForeignKey(Person)
+    host = models.ForeignKey(Person, related_name='host')
+    person1 = models.ForeignKey(Person, related_name='person1')
+    person2 = models.ForeignKey(Person, related_name='person2')
+    person3 = models.ForeignKey(Person, related_name='person3')
+    person4 = models.ForeignKey(Person, related_name='person4')
 
-@python_2_unicode_compatible
+#@python_2_unicode_compatible
 class OpenConversations(models.Model):
     conversationTopic = models.CharField(max_length=200)
     people = models.ForeignKey(People)
+    maxPeople = models.IntegerField()

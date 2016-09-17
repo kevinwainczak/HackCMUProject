@@ -34,6 +34,16 @@ def checkForConvo():
             break
     return "yes"
 
+def findIndex(a):
+    x1 = a[0].split(',')
+    y1 = a[1].split(',')
+    z1 = a[2].split(',')
+    arr = range(len(x1))
+    for i in xrange(len(x1)):
+        a[i] = x1[i] + y1[i] + z1[i]
+    minIndex = a.index(min(a))
+    return minIndex
+
 def getDistances():
     convo = []
     allElements = Person.objects.all()
@@ -47,7 +57,7 @@ def getDistances():
         if len(convo) == 3:
             break
     result = (convo[0].distance, convo[1].distance, convo[2].distance)
-    return result
+    return findIndex(result)
 
 # n = name, String
 # g = gender, String

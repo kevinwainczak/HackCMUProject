@@ -6,7 +6,7 @@ def demographicEqual(person, looker):
     if (person.gender == looker.gender
         and person.age == looker.age
         and person.race == looker.race
-        and person.sexuality == looker.sexuality) return true
+        and person.sexuality == looker.sexuality): return true
     if person.roast != looker.roast: return true
     return false
 

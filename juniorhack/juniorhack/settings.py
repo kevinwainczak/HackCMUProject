@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATIC_URL = "/static"
 
 # Application definition
 
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'juniorhack.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR + "/templates/",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

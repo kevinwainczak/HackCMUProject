@@ -35,7 +35,6 @@ def checkForConvo():
     return "yes"
 
 def findIndex(a):
-
     x1 = a[0].split(',')
     y1 = a[1].split(',')
     z1 = a[2].split(',')
@@ -60,7 +59,6 @@ def getDistances():
     result = (convo[0].distance, convo[1].distance, convo[2].distance)
     return findIndex(result)
 
->>>>>>> origin/master
 # n = name, String
 # g = gender, String
 # a = age, Integer

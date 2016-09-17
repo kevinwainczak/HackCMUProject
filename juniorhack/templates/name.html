@@ -41,7 +41,7 @@
 						}
 					},callback);
 			}
-
+			var darr;
 			function callback(response,status){
 				if (status == 'OK') {
 					var origins = response.originAddresses;
@@ -59,10 +59,10 @@
 						//	window.alert("distance =" + distance + " duration = " + duration);
 						}
 					}
+					darr = distanceArray.join();
+					document.getElementbyId("distanceArr").value = darr;
 				}
 			}
-			var darr = distanceArray.join();
-			document.getElementById("distanceArr").value = darr;
 		</script>
 		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD5ScteWK-i6oxXW3Af5Tky63HwcqCudo&callback=initialize">
